@@ -3,4 +3,4 @@ expo install react-native-gesture-handler react-native-reanimated react-native-s
 npm install react-navigation-stack
 npm install formik
 npm install @react-native-community/picker --save
-Nom install yup
+npm install yup
