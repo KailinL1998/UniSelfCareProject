@@ -52,7 +52,6 @@ export default function questionSetTwo({navigation}){
                 onValueChange={(itemValue, itemIndex)=>{props.setFieldValue('color',itemValue);setColor(itemValue)}}
                 value={props.values.color}
               >
-                <Picker.Item label="Select:" value="" />
                 <Picker.Item label="Red" value="Red" />
                 <Picker.Item label="Orange" value="Orange" />
                 <Picker.Item label="Yellow" value="Yellow" />
@@ -70,7 +69,6 @@ export default function questionSetTwo({navigation}){
               onValueChange={(itemValue, itemIndex)=>{props.setFieldValue('meal',itemValue);setMeal(itemValue)}}
               value={props.values.meal}
             >
-              <Picker.Item label="Select:" value="" />
               <Picker.Item label="Breakfast" value="Breakfast" />
               <Picker.Item label="Brunch" value="Brunch" />
               <Picker.Item label="Lunch" value="Lunch" />
