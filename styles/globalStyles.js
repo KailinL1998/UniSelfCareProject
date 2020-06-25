@@ -3,11 +3,11 @@ import {StyleSheet} from 'react-native';
 export const globalStyles=StyleSheet.create({
   container:{
     flex:1,
-    padding:20,
+    padding:30,
   },
   titleText:{
     color:'black',
-    fontSize:17,
+    fontSize:15,
     fontFamily:'BalsamiqSans-regular',
     fontWeight:'normal',
     marginTop:10,
@@ -20,7 +20,7 @@ export const globalStyles=StyleSheet.create({
     lineHeight:20,
   },
   input:{
-
+    fontSize:15,
   },
   errorText:{
     color:'crimson',

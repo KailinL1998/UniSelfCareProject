@@ -9,7 +9,7 @@ const screens={
     screen:QuestionSetOne,
     navigationOptions:{
       title:'Question Set One',
-      headerStyle:{backgroundColor:'#87CEEB'},
+      headerStyle:{backgroundColor:'#90EE90'},
     }
   },
   QuestionSetTwo:{
@@ -23,7 +23,7 @@ const screens={
     screen:Summary,
     navigationOptions:{
       title:'Summary',
-      headerStyle:{backgroundColor:'#90EE90'},
+      headerStyle:{backgroundColor:'#87CEEB'},
     }
   }
 }

@@ -11,12 +11,12 @@ export default function summary({navigation}){
   return(
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Name: {navigation.getParam('name')}</Text>
-      <Text style={globalStyles.titleText}>Birthday: {navigation.getParam('birthMonth')} {navigation.getParam('birthDate')}</Text>
+      <Text style={globalStyles.titleText}>Birthday: {navigation.getParam('month')} {navigation.getParam('day')}</Text>
       <Text style={globalStyles.titleText}>Favorite Food: {navigation.getParam('food')}</Text>
       <Text style={globalStyles.titleText}>Favorite Color: {navigation.getParam('color')}</Text>
       <Text style={globalStyles.titleText}>Favorite Meal of Day: {navigation.getParam('meal')}</Text>
       <Text style={globalStyles.titleText}>Year in College: {navigation.getParam('year')}</Text>
-      <Button title='Start Over Again' color='#90EE90' onPress={pressHandler} />
+      <Button title='Start Over Again' color='#87CEEB' onPress={pressHandler} />
     </View>
   )
 }

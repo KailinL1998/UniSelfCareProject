@@ -7,6 +7,8 @@ import * as yup from 'yup';
 
 const answerSchema=yup.object({
   name:yup.string().required(),
+  month:yup.string().required(),
+  day:yup.string().required(),
   food:yup.string().required(),
 })
 
@@ -16,23 +18,21 @@ export default function questionSetOne({navigation}){
     navigation.navigate('QuestionSetTwo',values);
   }
 
-  const [month, setMonth] = useState('January');
-  const [day, setDay] = useState('1');
+  const [month, setMonth] = useState('');
+  const [day, setDay] = useState('');
 
   return(
     <View style={globalStyles.container}>
       <Formik
-        initialValues={{name:'',birthMonth:'January',birthDate:'1',food:''}}
+        initialValues={{name:'',month:'',day:'',food:''}}
         validationSchema={answerSchema}
         onSubmit={(values,actions)=>{
-
           actions.resetForm();
           pressHandler({values});
         }}
       >
         {(props)=>(
           <View>
-
             <Text style={globalStyles.titleText}>What is your name?</Text>
             <TextInput
               style={globalStyles.input}
@@ -45,10 +45,11 @@ export default function questionSetOne({navigation}){
             <Text style={globalStyles.titleText}>What is your birthday?</Text>
             <Picker
               selectedValue={month}
-              style={{height: 50, width: 100}}
-              onValueChange={(itemValue, itemIndex)=>{props.setFieldValue('birthMonth',itemValue);setMonth(itemValue)}}
-              value={props.values.birthMonth}
+              style={{height: 50, width: 130}}
+              onValueChange={(itemValue, itemIndex)=>{props.setFieldValue('month',itemValue);setMonth(itemValue)}}
+              value={props.values.month}
             >
+              <Picker.Item label="Select:" value="" />
               <Picker.Item label="Jan" value="January" />
               <Picker.Item label="Feb" value="February" />
               <Picker.Item label="Mar" value="March" />
@@ -62,12 +63,15 @@ export default function questionSetOne({navigation}){
               <Picker.Item label="Nov" value="November" />
               <Picker.Item label="Dec" value="December" />
             </Picker>
+            <Text style={globalStyles.errorText}>{props.touched.month && props.errors.month}</Text>
+
             <Picker
               selectedValue={day}
-              style={{height: 50, width: 100}}
-              onValueChange={(itemValue, itemIndex)=>{props.setFieldValue('birthDate',itemValue);setDay(itemValue)}}
-              value={props.values.birthDate}
+              style={{height: 50, width: 130}}
+              onValueChange={(itemValue, itemIndex)=>{props.setFieldValue('day',itemValue);setDay(itemValue)}}
+              value={props.values.day}
             >
+              <Picker.Item label="Select:" value="" />
               <Picker.Item label="1" value="1" /><Picker.Item label="2" value="2" /><Picker.Item label="3" value="3" />
               <Picker.Item label="4" value="4" /><Picker.Item label="5" value="5" /><Picker.Item label="6" value="6" />
               <Picker.Item label="7" value="7" /><Picker.Item label="8" value="8" /><Picker.Item label="9" value="9" />
@@ -80,15 +84,18 @@ export default function questionSetOne({navigation}){
               <Picker.Item label="28" value="28" /><Picker.Item label="29" value="29" /><Picker.Item label="30" value="30" />
               <Picker.Item label="31" value="31" />
             </Picker>
+            <Text style={globalStyles.errorText}>{props.touched.day && props.errors.day}</Text>
 
             <Text style={globalStyles.titleText}>What is your favorite food?</Text>
             <TextInput
               style={globalStyles.input}
+              placeholder='Food Name'
               onChangeText={props.handleChange('food')}
               value={props.values.food}
             />
             <Text style={globalStyles.errorText}>{props.touched.food && props.errors.food}</Text>
-            <Button title='Next' color='#87CEEB' onPress={()=>{props.handleSubmit()}} />
+
+            <Button title='Next' color='#90EE90' onPress={()=>{props.handleSubmit()}} />
           </View>
         )}
       </Formik>
